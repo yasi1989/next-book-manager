@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "../globals.css";
 import { SidebarProvider } from "@/components/ui/sidebar";
-import AppSidebar from "../_components/AppSidebar";
+import AppSidebar from "@/components/AppSidebar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,7 +29,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <SidebarProvider className="grid grid-cols-[auto_1fr] w-full">
+        <SidebarProvider className="grid grid-cols-[auto_1fr] h-svh">
           <AppSidebar />
           <main className="grid overflow-x-hidden overflow-y-auto py-8 px-6 justify-content-start content-start">
             {children}
