@@ -1,6 +1,7 @@
 import {
   Sidebar,
   SidebarContent,
+  SidebarFooter,
   SidebarGroup,
   SidebarGroupContent,
   SidebarHeader,
@@ -8,7 +9,9 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
-import { Library, PlusCircle, BookOpen } from "lucide-react";
+import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
+import { Library, PlusCircle, BookOpen, LogInIcon } from "lucide-react";
+import Link from "next/link";
 
 const SideMenu = () => {
   const items = [
@@ -41,6 +44,24 @@ const SideMenu = () => {
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
+      <SidebarFooter className="text-white">
+        <SidebarMenu>
+          <SidebarMenuItem>
+            <SignedOut>
+              <SidebarMenuButton asChild size="lg">
+                <Link href={"/sign-in"}>
+                  <LogInIcon/><span>Logged In</span>
+                </Link>
+              </SidebarMenuButton>
+            </SignedOut>
+            <SignedIn>
+              <SidebarMenuButton asChild>
+                <UserButton />
+              </SidebarMenuButton>
+            </SignedIn>
+            </SidebarMenuItem>
+          </SidebarMenu>
+      </SidebarFooter>
     </Sidebar>
   );
 };

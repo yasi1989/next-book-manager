@@ -1,6 +1,5 @@
 import BookNav from "@/features/books/components/BookNav";
 
-
 const BookShelfPresantaional = ({
   children,
 }: {
@@ -8,7 +7,7 @@ const BookShelfPresantaional = ({
 }) => {
 
   return (
-    <div className="grid container mx-auto gap-8">
+    <div className="grid container mx-auto gap-8 p-4">
       <BookNav />
       {children}
     </div>
