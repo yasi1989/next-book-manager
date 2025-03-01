@@ -59,8 +59,8 @@ const SideMenu = () => {
                 <UserButton />
               </SidebarMenuButton>
             </SignedIn>
-            </SidebarMenuItem>
-          </SidebarMenu>
+          </SidebarMenuItem>
+        </SidebarMenu>
       </SidebarFooter>
     </Sidebar>
   );

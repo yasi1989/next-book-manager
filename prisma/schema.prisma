@@ -27,5 +27,5 @@ model Book {
 model User {
   id    String  @id @default(uuid())
   name  String?
-  Books Book[]
+  Book  Book[]
 }

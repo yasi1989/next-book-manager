@@ -6,8 +6,8 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { Book } from "../types/type";
 import BookItem from "./BookItem";
+import { Book } from "@prisma/client";
 
 type BookListProps = {
   books: Book[];

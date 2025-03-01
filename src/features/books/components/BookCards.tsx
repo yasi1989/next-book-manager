@@ -1,4 +1,5 @@
-import { Book } from "../types/type";
+
+import { Book } from "@prisma/client";
 import BookCard from "./BookCard";
 
 type BookCardsProps = {

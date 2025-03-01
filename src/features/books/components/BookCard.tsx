@@ -5,9 +5,9 @@ import {
   CardFooter,
   CardHeader,
 } from "@/components/ui/card";
+import { Book } from "@prisma/client";
 import { Edit, Trash2 } from "lucide-react";
 import Image from "next/image"
-import { Book } from "../types/type";
 
 type BookCardProp = {
   book: Book;
@@ -19,7 +19,8 @@ const BookCard = ({book}: BookCardProp) => {
       <CardHeader className="p-0">
         <div className="relative aspect-square w-full">
           <Image
-            src={book.coverUrl}
+            src={book.coverUrl ? book.coverUrl
+              : "https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&q=80&w=200"}
             alt={book.title}
             fill
             className="object-cover"
