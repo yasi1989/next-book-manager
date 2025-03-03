@@ -16,7 +16,7 @@ import { Calendar } from "@/components/ui/calendar";
 import { cn } from "@/lib/utils";
 import { format } from "date-fns";
 import { UseFormReturn } from "react-hook-form";
-import { FormValue } from "../types/type";
+import { FormValue } from "../../types/type";
 
 type FormDatePickerProps = {
     form: UseFormReturn<FormValue>,

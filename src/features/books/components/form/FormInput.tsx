@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import {
   FormControl,
   FormField,
@@ -8,29 +7,26 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { UseFormReturn } from "react-hook-form";
-import { FormValue } from "../types/type";
+import { FormValue } from "../../types/type";
 
-type FormFileInputProps = {
+type FormInputProps = {
     form: UseFormReturn<FormValue>,
-    name: "file";
+    name: "title" | "author" | "status";
     label: string;
+    placeholder: string;
+    type: string;
 }
 
-const FormFileInput = ({form, name, label}: FormFileInputProps) => {
+const FormInput = ({form, name, label, placeholder, type}: FormInputProps) => {
   return (
     <FormField
       control={form.control}
       name={name}
-      render={({ field: { value, onChange, ...fieldProps } }) => (
+      render={({ field }) => (
         <FormItem>
           <FormLabel>{label}</FormLabel>
           <FormControl>
-            <Input
-              accept="image/*"
-              type="file"
-              onChange={(event) => onChange(event.target.files)}
-              {...fieldProps}
-            />
+            <Input placeholder={placeholder} {...field} type={type} />
           </FormControl>
           <FormMessage />
         </FormItem>
@@ -39,4 +35,4 @@ const FormFileInput = ({form, name, label}: FormFileInputProps) => {
   )
 }
 
-export default FormFileInput
+export default FormInput

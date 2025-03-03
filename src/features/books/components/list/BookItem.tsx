@@ -12,8 +12,7 @@ const BookItem = ({ book }: BookItemProps) => {
       <TableCell>
           <Image
             alt={book.title}
-            src={book.coverUrl ? book.coverUrl
-              : "https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&q=80&w=200"}
+            src={book.coverUrl || "/noimage.jpg"}
             width={50}
             height={50}
             className="rounded-md shadow-sm"

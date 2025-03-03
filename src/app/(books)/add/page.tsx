@@ -1,4 +1,4 @@
-import BookNewForm from "@/features/books/components/BookNewForm";
+import BookNewForm from "@/features/books/components/form/BookNewForm";
 
 const AddBookPage = () => {
   return <BookNewForm />;

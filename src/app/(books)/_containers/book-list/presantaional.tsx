@@ -1,7 +1,7 @@
 "use client"
 
-import BookCards from "@/features/books/components/BookCards";
-import BookList from "@/features/books/components/BookList";
+import BookCards from "@/features/books/components/list/BookCards";
+import BookList from "@/features/books/components/list/BookList";
 import { searchQueryAtom, viewModeAtom } from "@/features/books/stores/book-list-atom";
 import { Book } from "@prisma/client";
 import { useAtomValue } from "jotai";

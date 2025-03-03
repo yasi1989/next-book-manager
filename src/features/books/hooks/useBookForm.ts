@@ -1,23 +1,31 @@
-import { useCallback, useTransition } from "react";
+import { useTransition } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { Book } from "@prisma/client";
 import { AddFormSchema, EditFormSchema } from "../types/form-schema";
+import { addBookAction, editBookAction } from "../services/book-actions";
 
 type UseFormProps = {
-  type: string;
+  type: "add" | "edit";
   book?: Book | null;
+}
+
+const bookActions = {
+  add: addBookAction,
+  edit: editBookAction,
 }
 
 export const useBookForm = ({type, book}: UseFormProps) => {
   const [isLoading, startTransition] = useTransition();
 
-  const onSubmit = useCallback((values: z.infer<typeof AddFormSchema | typeof EditFormSchema>) => {
-    startTransition(() => {
-      console.log(values);
+  const onSubmit = (values: z.infer<typeof AddFormSchema | typeof EditFormSchema>) => {
+    startTransition(async() => {
+      const {error, success} = await bookActions[type](values);
+      console.log(success);
+      console.log(error);
     });
-  }, []);
+  };
 
   const form = useForm<z.infer<typeof AddFormSchema | typeof EditFormSchema>>({
     resolver: zodResolver(type === "add" ? AddFormSchema : EditFormSchema),
