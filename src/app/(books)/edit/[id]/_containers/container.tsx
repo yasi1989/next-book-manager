@@ -1,5 +1,5 @@
 import BookEditForm from "@/features/books/components/form/BookEditForm";
-import { fetchBookById } from "@/features/books/services/book-fetcher";
+import { fetchBookById } from "@/features/books/utils/book-fetcher";
 
 const EditBookContainer = async ({
   params,
