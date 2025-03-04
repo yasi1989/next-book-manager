@@ -1,6 +1,10 @@
+import { Button } from "@/components/ui/button";
 import { TableCell, TableRow } from "@/components/ui/table";
 import { Book } from "@prisma/client";
+import { Edit } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
+import BookDeleteDialog from "../form/BookDeleteDialog";
 
 type BookItemProps = {
   book: Book;
@@ -10,13 +14,13 @@ const BookItem = ({ book }: BookItemProps) => {
   return (
     <TableRow key={book.id}>
       <TableCell>
-          <Image
-            alt={book.title}
-            src={book.coverUrl || "/noimage.jpg"}
-            width={50}
-            height={50}
-            className="rounded-md shadow-sm"
-          />
+        <Image
+          alt={book.title}
+          src={book.coverUrl || "/noimage.jpg"}
+          width={50}
+          height={50}
+          className="rounded-md shadow-sm aspect-square"
+        />
       </TableCell>
       <TableCell className="font-medium">{book.title}</TableCell>
       <TableCell>{book.author}</TableCell>
@@ -33,6 +37,17 @@ const BookItem = ({ book }: BookItemProps) => {
         >
           {book.status}
         </span>
+      </TableCell>
+      <TableCell className="text-right">
+        <Link href={`edit/${book.id}`}>
+          <Button
+            variant="ghost"
+            size="icon"
+          >
+            <Edit className="h-4 w-4" />
+          </Button>
+        </Link>
+        <BookDeleteDialog id={book.id} />
       </TableCell>
     </TableRow>
   );

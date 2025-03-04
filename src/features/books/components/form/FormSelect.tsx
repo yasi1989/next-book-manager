@@ -12,7 +12,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { statusItems } from "../../const/const";
 import { UseFormReturn } from "react-hook-form";
 import { FormValue } from "../../types/type";
 
@@ -20,10 +19,11 @@ type FormSelectProps = {
     form: UseFormReturn<FormValue>,
     name: "status";
     label: string;
+    selectItems: string[],
     placeholder: string;
 }
 
-const FormSelect = ({form, name, label, placeholder}:FormSelectProps) => {
+const FormSelect = ({form, name, label, selectItems, placeholder}:FormSelectProps) => {
   return (
     <FormField
       control={form.control}
@@ -38,7 +38,7 @@ const FormSelect = ({form, name, label, placeholder}:FormSelectProps) => {
               </SelectTrigger>
             </FormControl>
             <SelectContent>
-              {statusItems.map((item) => (
+              {selectItems.map((item) => (
                 <SelectItem value={item} key={item}>
                   {item}
                 </SelectItem>
