@@ -1,4 +1,4 @@
-import { fetchBooks } from "@/features/books/services/book-fetcher";
+import { fetchBooks } from "@/features/books/utils/book-fetcher";
 import BookListPresantational from "./presantaional"
 
 const BookListContainer = async () => {
