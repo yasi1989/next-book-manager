@@ -10,8 +10,8 @@ import {
 } from "@/components/ui/dialog";
 import { Trash2 } from "lucide-react";
 import { useActionState } from "react";
-import { deleteBookAction } from "../../services/book-actions";
 import { BookStateReturn } from "../../types/type";
+import { deleteBookAction } from "../../utils/book-actions";
 
 type BookDeleteDialogProps = {
   id: string;

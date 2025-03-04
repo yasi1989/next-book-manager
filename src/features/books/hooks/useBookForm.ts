@@ -4,8 +4,8 @@ import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { Book } from "@prisma/client";
 import { AddFormSchema, EditFormSchema } from "../types/form-schema";
-import { addBookAction, editBookAction } from "../services/book-actions";
 import { toast } from "sonner";
+import { addBookAction, editBookAction } from "../utils/book-actions";
 
 type UseFormProps = {
   type: "add" | "edit";
