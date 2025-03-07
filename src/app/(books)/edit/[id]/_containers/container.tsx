@@ -7,8 +7,8 @@ const EditBookContainer = async ({
   params: Promise<{ id: string }>;
 }) => {
   const { id } = await params;
-  const book = await fetchBookById(id);
-  return <BookEditForm book={book} />;
+  const result = await fetchBookById(id);
+  return <BookEditForm result={result} />;
 };
 
 export default EditBookContainer;

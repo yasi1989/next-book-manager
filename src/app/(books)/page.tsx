@@ -12,3 +12,4 @@ export default function Home() {
     </BookShelfPresantaional>
   );
 }
+export const dynamic = "force-dynamic";

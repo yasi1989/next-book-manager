@@ -5,21 +5,23 @@ import { useBookForm } from "@/features/books/hooks/useBookForm";
 import FormInput from "@/features/books/components/form/FormInput";
 import FormDatePicker from "@/features/books/components/form/FormDatePicker";
 import FormFileInput from "@/features/books/components/form/FormFileInput";
-import { Book } from "@prisma/client";
 import FormSelect from "./FormSelect";
 import { Books } from "../../const/const";
+import { FetchBookResult } from "../../types/type";
+import BookSearchError from "../list/BookSearchError";
 
 type BookEditFormProps = {
-  book: Book | null;
+  result: FetchBookResult;
 }
 
-const BookEditForm = ({book}: BookEditFormProps) => {
+const BookEditForm = ({result}: BookEditFormProps) => {
   const type = "edit";
+  const book = result.success ? result.book : null;
   const {form, onSubmit, isLoading} = useBookForm({type, book});
 
   return (
     <>
-      { book ? (
+      { result.success ? (
         <div className="grid container mx-auto px-4 py-8 justify-items-center gap-8">
           <h1 className="text-2xl font-bold text-gray-700">Edit Book</h1>
           <Form {...form}>
@@ -34,9 +36,7 @@ const BookEditForm = ({book}: BookEditFormProps) => {
           </Form>
         </div>
       ) : (
-        <div className="grid container mx-auto px-4 py-8 justify-items-center gap-8">
-          データが見つかりません。
-        </div>
+        <BookSearchError errorMsg={result.error} />
       )}
     </>
   );

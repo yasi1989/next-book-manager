@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import {
   FormControl,
   FormDescription,
@@ -12,13 +11,18 @@ import { UseFormReturn } from "react-hook-form";
 import { FormValue } from "../../types/type";
 
 type FormFileInputProps = {
-    form: UseFormReturn<FormValue>,
-    name: "file";
-    label: string;
-    message?: string;
-}
+  form: UseFormReturn<FormValue>;
+  name: "file";
+  label: string;
+  message?: string;
+};
 
-const FormFileInput = ({form, name, label, message = ""}: FormFileInputProps) => {
+const FormFileInput = ({
+  form,
+  name,
+  label,
+  message = "",
+}: FormFileInputProps) => {
   return (
     <FormField
       control={form.control}
@@ -39,7 +43,7 @@ const FormFileInput = ({form, name, label, message = ""}: FormFileInputProps) =>
         </FormItem>
       )}
     />
-  )
-}
+  );
+};
 
-export default FormFileInput
+export default FormFileInput;
