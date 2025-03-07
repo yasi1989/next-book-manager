@@ -6,15 +6,14 @@
 + ヘッダーよりGrid、List形式の表示の切り替えが可能
 + 認証機能の実装、ユーザIDに紐づくデータを取得
 
-# 未実装
-+ データ登録、編集、削除機能
-
 # 利用技術
 + NextJS
 + TypeScript
 + TailwindCSS
 + shadcn/ui
++ react-hook-form
 + supabase
++ supabase storage
 + clerk
 
 # 環境構築

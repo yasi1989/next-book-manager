@@ -1,9 +1,13 @@
-import React from 'react'
+import { Suspense } from "react";
+import EditBookContainer from "./_containers/container";
+import BookFormSkelton from "@/features/books/components/form/BookFormSkelton";
 
-const page = () => {
+const EditBookPage = ({ params }: { params: Promise<{ id: string }> }) => {
   return (
-    <div className='grid container mx-auto px-4 py-8 justify-items-center items-center h-svh'>page</div>
-  )
-}
+    <Suspense fallback={<BookFormSkelton />}>
+      <EditBookContainer params={params} />
+    </Suspense>
+  );
+};
 
-export default page
+export default EditBookPage;

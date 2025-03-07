@@ -6,8 +6,10 @@ import {
   CardHeader,
 } from "@/components/ui/card";
 import { Book } from "@prisma/client";
-import { Edit, Trash2 } from "lucide-react";
+import { Edit } from "lucide-react";
 import Image from "next/image"
+import Link from "next/link";
+import BookDeleteDialog from "../form/BookDeleteDialog";
 
 type BookCardProp = {
   book: Book;
@@ -19,11 +21,12 @@ const BookCard = ({book}: BookCardProp) => {
       <CardHeader className="p-0">
         <div className="relative aspect-square w-full">
           <Image
-            src={book.coverUrl ? book.coverUrl
-              : "https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&q=80&w=200"}
+            src={book.coverUrl || "/noimage.jpg"}
             alt={book.title}
             fill
+            sizes="(max-width: 768px) 100vw, 50vw"
             className="object-cover"
+            priority={true}
           />
         </div>
       </CardHeader>
@@ -39,15 +42,15 @@ const BookCard = ({book}: BookCardProp) => {
         </span>
       </CardContent>
       <CardFooter className="p-4 pt-0 flex justify-end gap-2">
-        <Button
-          variant="ghost"
-          size="icon"
-        >
-          <Edit className="h-4 w-4" />
-        </Button>
-        <Button variant="ghost" size="icon" className="text-red-500">
-          <Trash2 className="h-4 w-4" />
-        </Button>
+        <Link href={`edit/${book.id}`}>
+          <Button
+            variant="ghost"
+            size="icon"
+          >
+            <Edit className="h-4 w-4" />
+          </Button>
+        </Link>
+        <BookDeleteDialog id={book.id} />
       </CardFooter>
     </Card>
   )

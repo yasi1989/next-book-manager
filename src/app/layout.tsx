@@ -4,6 +4,7 @@ import "./globals.css";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import AppSidebar from "@/components/AppSidebar";
 import { ClerkProvider } from "@clerk/nextjs";
+import { Toaster } from "@/components/ui/sonner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -36,6 +37,7 @@ export default function RootLayout({
             <div className="grid grid-rows-[auto_1fr]">
               <main className="overflow-x-hidden overflow-y-auto">
                 {children}
+                <Toaster />
               </main>
             </div>
           </SidebarProvider>
