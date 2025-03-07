@@ -27,7 +27,8 @@ const FormFileInput = ({
     <FormField
       control={form.control}
       name={name}
-      render={({ field: { value, onChange, ...fieldProps } }) => (
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      render={({ field: { value: _value, onChange, ...fieldProps } }) => (
         <FormItem>
           <FormLabel>{label}</FormLabel>
           <FormDescription>{message}</FormDescription>
