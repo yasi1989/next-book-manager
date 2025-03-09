@@ -1,4 +1,5 @@
-import BookNav from "@/features/books/components/BookNav";
+import BookNav from "@/features/books/components/list/BookNav";
+
 
 const BookShelfPresantaional = ({
   children,

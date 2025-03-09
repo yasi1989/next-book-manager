@@ -1,7 +1,7 @@
 import { Input } from "@/components/ui/input";
 import { useSetAtom } from "jotai";
 import { Search } from "lucide-react";
-import { searchQueryAtom } from "../stores/book-list-atom";
+import { searchQueryAtom } from "../../stores/book-list-atom";
 
 const SearchBar = () => {
   const setSearchQuery = useSetAtom(searchQueryAtom);

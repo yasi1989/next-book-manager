@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Grid3X3, List } from "lucide-react";
 import SearchBar from "./SearchBar";
 import { useAtom } from "jotai";
-import { viewModeAtom } from "../stores/book-list-atom";
+import { viewModeAtom } from "../../stores/book-list-atom";
 
 const BookNav = () => {
   const [viewMode, setViewMode] = useAtom(viewModeAtom);

@@ -1,9 +1,7 @@
-const page = () => {
-  return (
-    <div className='grid container mx-auto px-4 py-8 justify-items-center items-center h-svh'>
-        
-    </div>
-  )
-}
+import BookNewForm from "@/features/books/components/form/BookNewForm";
 
-export default page
+const AddBookPage = () => {
+  return <BookNewForm />;
+};
+
+export default AddBookPage;
